@@ -28,7 +28,7 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col h-full">
       {/* Top Header */}
-      <div className="h-16 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0F0F0F] flex items-center justify-between px-8">
+      <div className="h-16 bg-white dark:bg-[#0F0F0F] flex items-center justify-between px-8 z-10 sticky top-0">
         <div className="flex items-center gap-2 text-[15px]">
           <span className="font-semibold text-gray-900 dark:text-gray-100">
             Scan
@@ -48,7 +48,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="flex-1 p-8 overflow-y-auto">
+      <div className="flex-1 p-8 overflow-y-auto bg-[#F5F5F5] dark:bg-[#0A0A0A]">
         {/* Context Row */}
         <div className="flex items-center gap-8 mb-8 text-sm">
           <div className="flex items-center gap-2 text-gray-500">
@@ -156,7 +156,7 @@ export default function DashboardPage() {
           ].map((stat, i) => (
             <div
               key={i}
-              className="bg-white dark:bg-[#0F0F0F] rounded-2xl p-6 border border-gray-100 dark:border-gray-800"
+              className="bg-white dark:bg-[#1A1A1A] rounded-xl p-6 shadow-sm border border-transparent dark:border-gray-800"
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[15px] font-medium text-gray-600 dark:text-gray-400">
@@ -189,7 +189,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Table Area */}
-        <div className="bg-white dark:bg-[#0F0F0F] rounded-2xl border border-gray-100 dark:border-gray-800">
+        <div className="bg-white dark:bg-[#1A1A1A] rounded-xl shadow-sm border border-transparent dark:border-gray-800">
           <div className="p-4 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
             <div className="relative w-96">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />

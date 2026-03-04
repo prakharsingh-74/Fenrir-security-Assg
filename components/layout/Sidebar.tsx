@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   LayoutDashboard,
   FolderKanban,
@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -41,20 +42,23 @@ export function Sidebar() {
       </div>
 
       {/* Main Navigation */}
-      <div className="px-5 flex-1 space-y-2 mt-4">
+      <div className="flex-1 space-y-1 mt-4">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center gap-4 px-4 py-3 rounded-full transition-colors ${
+              className={`flex items-center gap-4 pl-8 pr-4 py-3 rounded-r-full transition-colors ${
                 isActive
-                  ? "bg-teal-50/80 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 font-medium"
-                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                  ? "bg-[#E6F8F5] dark:bg-teal-500/10 text-[#0CC8A8] dark:text-teal-400 font-medium"
+                  : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 mx-4 rounded-full pl-4"
               }`}
             >
-              <item.icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 2} />
+              <item.icon
+                className={`w-5 h-5 ${isActive ? "text-[#0CC8A8]" : "text-gray-400"}`}
+                strokeWidth={isActive ? 2.5 : 2}
+              />
               <span className="text-[15px]">{item.name}</span>
             </Link>
           );
@@ -87,6 +91,7 @@ export function Sidebar() {
             </Link>
           );
         })}
+        <ThemeToggle />
 
         {/* User Profile */}
         <div className="mt-8 pt-6 flex items-center justify-between px-4">
